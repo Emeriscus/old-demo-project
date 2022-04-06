@@ -1,4 +1,4 @@
-package catalog;
+package catalog.service;
 
 import catalog.classes.Audio;
 import catalog.classes.Book;

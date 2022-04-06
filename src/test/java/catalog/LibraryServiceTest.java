@@ -6,6 +6,7 @@ import catalog.classes.LibraryItem;
 import catalog.repository.AudioRepository;
 import catalog.repository.BookRepository;
 import catalog.repository.LibraryItemRepository;
+import catalog.service.LibraryService;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
