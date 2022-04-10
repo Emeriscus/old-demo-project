@@ -97,6 +97,12 @@ class LibraryServiceTest {
     }
 
     @Test
+    public void getLibraryItemIdByTitleTest() {
+        assertEquals(3, libraryService.getLibraryItemIdByTitle("A tűzhegy varázslója"));
+    }
+
+
+    @Test
     void getLibraryItemByTitleTest() {
         assertEquals("Conan a barbár", libraryService.getLibraryItemByTitle("Conan a barbár").get().getTitle());
         assertEquals(List.of("Robert E. Howard"), libraryService.getLibraryItemByTitle("Conan a barbár").get().getContributors());
@@ -157,5 +163,12 @@ class LibraryServiceTest {
         assertEquals(1, libraryService.getLibraryItemByTitle("Viperagarzon").get().getQuantity());
         libraryService.borrowLibraryItemByTitle("Viperagarzon");
         assertEquals(0, libraryService.getLibraryItemByTitle("Viperagarzon").get().getQuantity());
+    }
+
+    @Test
+    void hasAvailableLibraryItemQuantitybyIdTest() {
+        assertTrue(libraryService.hasAvailableLibraryItemQuantitybyId(4));
+        libraryService.borrowLibraryItemByTitle("Viperagarzon");
+        assertFalse(libraryService.hasAvailableLibraryItemQuantitybyId(4));
     }
 }
